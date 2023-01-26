@@ -333,7 +333,7 @@ def handle_start(message: Message) -> None:
 
 
 def main() -> None:
-    print(f"Started bot: {bot.get_me().username}")
+    print(True)
     bot.infinity_polling()
 
 
