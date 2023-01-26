@@ -19,7 +19,7 @@ CELL_X = "❌"
 CELL_O = "⭕️"
 CELL_EMPTY = "🔳"
 
-TELEGRAM_TOKEN = os.getenv('5841942016:AAEUeDRIkS7IdlKKnNWHBme6T1GfKHQGeSM')
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN', '5841942016:AAEUeDRIkS7IdlKKnNWHBme6T1GfKHQGeSM')
 if not TELEGRAM_TOKEN:
     print("err: TELEGRAM_TOKEN is required")
     sys.exit(1)
