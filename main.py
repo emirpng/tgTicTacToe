@@ -19,13 +19,13 @@ CELL_X = "❌"
 CELL_O = "⭕️"
 CELL_EMPTY = "🔳"
 
-TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+TELEGRAM_TOKEN = os.getenv('5841942016:AAEUeDRIkS7IdlKKnNWHBme6T1GfKHQGeSM')
 if not TELEGRAM_TOKEN:
     print("err: TELEGRAM_TOKEN is required")
     sys.exit(1)
 bot = TeleBot(TELEGRAM_TOKEN, parse_mode="HTML")
 
-client = MongoClient(port=int(os.getenv('MONGO_PORT', 27017)))
+client = MongoClient("mongodb+srv://sharkgame:shark0game@cluster0.oprvkgn.mongodb.net/?retryWrites=true&w=majority")
 db = client.tictactoe
 
 
