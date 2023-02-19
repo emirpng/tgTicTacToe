@@ -1,31 +1,3 @@
-import os
-import secrets
-import sys
-from datetime import datetime
-from uuid import uuid4
-
-from dotenv import load_dotenv
-from pymongo import MongoClient
-from telebot import TeleBot
-from telebot.types import Message, InlineQueryResultArticle, InputTextMessageContent, InlineQuery, \
-    InlineKeyboardMarkup, InlineKeyboardButton, ChosenInlineResult, CallbackQuery
-
-import messages
-from messages import WELCOME_MESSAGE, WELCOME_BACK_MESSAGE
-
-load_dotenv()
-
-CELL_X = "❌"
-CELL_O = "⭕️"
-CELL_EMPTY = "🔳"
-
-TELEGRAM_TOKEN = '5841942016:AAH7ZUpVNjgcDtIiHPgfkkQQCYBJbJAgvrU'
-bot = TeleBot(TELEGRAM_TOKEN, parse_mode="HTML")
-
-client = MongoClient("mongodb+srv://sharkgame:shark0game@cluster0.oprvkgn.mongodb.net/?retryWrites=true&w=majority")
-db = client.tictactoe
-
-
 def _get_or_create_user(telegram_id) -> dict:
     user = db.users.find_one({"telegram_id": str(telegram_id)})
     if not user:
@@ -330,7 +302,7 @@ def handle_start(message: Message) -> None:
 
 
 def main() -> None:
-    print(True)
+    print(f"Started bot: {bot.get_me().username}")
     bot.infinity_polling()
 
 
